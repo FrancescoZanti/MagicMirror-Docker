@@ -1,0 +1,6 @@
+MagicMirrorServer/dockercopy.sh
+MagicMirrorServer/xbuildx.sh
+MagicMirrorClient/installdep.sh
+MagicMirrorClient - electron
+MagicMirrorServer/build.sh
+MagicMirrorClient/build.sh

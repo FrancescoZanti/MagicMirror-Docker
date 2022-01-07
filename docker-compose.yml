@@ -1,0 +1,20 @@
+version: "3.9"
+
+services: 
+  mmserver:
+    image: magicmirror-docker:latest
+    volumes:
+      - $PWD/MagicMirrorServer/config:/opt/magic_mirror/config:rw
+      - $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules:rw
+      - $PWD/MagicMirrorServer/css/custom.css:/opt/magic_mirror/css/custom.css:rw
+    restart: always
+
+  mmclient:
+    depends_on:
+      - mmserver
+    image: mmclient:latest
+    volumes: 
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    restart: always
+    environment:
+      - DISPLAY
