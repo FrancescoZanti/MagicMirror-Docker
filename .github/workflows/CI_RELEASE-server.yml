@@ -1,4 +1,4 @@
-name: CI Release
+name: CI Release-server
 
 on:
   push:
@@ -16,6 +16,8 @@ jobs:
 
       run: echo "version=$(date +%Y.%m)" >> $GITHUB_ENV
     
+    - uses: actions/checkout@v2
+    
     - name: "Setup QEMU"
       uses: docker/setup-qemu-action@v1
 
@@ -29,11 +31,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    -   name: LS
+        run: ls -la ../..
+
     -   name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: Dockerfile
+          context: ./MagicMirrorServer
+          file: MagicMirrorServer/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: francescozanti/magicmirror-docker:${{ env.version }}, francescozanti/magicmirror-docker:latest
-          build-args: francescozanti/magicmirror-docker=${{ env.version }}              
+          tags: francescozanti/magicmirror-docker:server-${{ env.version }}, francescozanti/magicmirror-docker:server-latest
+          build-args: francescozanti/magicmirror-docker=server-${{ env.version }}              
