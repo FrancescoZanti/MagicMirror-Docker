@@ -101,14 +101,20 @@ chmod +x run.sh && ./run.sh
 
 <br>
 
-### Docker-compose 🚀    
+### Docker-compose 🚀   
+
+Aggiungere la seguente riga nel file **/etc/profile** (permanente) o eseguirla nel terminale (temporaneo, fino al primo riavvio):
+
+<br>
 
 ```
-cd MagicMirror-Docker   && docker build -t magicmirror-docker:latest .
-cd ../magicMirrorClient && docker build -t mmclient:latest .
+xhost + local:docker
+```
 
-cd .. && docker-compose up -d
+<br>
 
+```
+curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/docker-compose.yml' -o docker-compose.yml | docker-compose up -d
 ```
 
 ### ToDo

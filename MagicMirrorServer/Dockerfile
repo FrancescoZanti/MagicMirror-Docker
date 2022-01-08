@@ -22,6 +22,9 @@ RUN npm install --silent
 # Copy config from config folder
 COPY config/ /opt/magic_mirror/config/
 
+# Copy node_modules from node_modules folder
+RUN cp -R modules/ /opt/magic_mirror/modules/
+
 # Expose port 8080
 EXPOSE 8080 
 

@@ -2,7 +2,7 @@ version: "3.9"
 
 services: 
   mmserver:
-    image: magicmirror-docker:latest
+    image: francescozanti/magicmirror-docker:server-latest
     volumes:
       - $PWD/MagicMirrorServer/config:/opt/magic_mirror/config:rw
       - $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules:rw
@@ -12,7 +12,7 @@ services:
   mmclient:
     depends_on:
       - mmserver
-    image: mmclient:latest
+    image: francescozanti/magicmirror-docker:client-latest
     volumes: 
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     restart: always
