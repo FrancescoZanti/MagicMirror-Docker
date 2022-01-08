@@ -114,7 +114,7 @@ xhost + local:docker
 <br>
 
 ```
-curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/docker-compose.yml' -o docker-compose.yml | docker-compose up -d
+curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/docker-compose.yml' -o docker-compose.yml | pv | docker-compose up -d
 ```
 
 ### ToDo
