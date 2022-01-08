@@ -38,6 +38,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./MagicMirrorServer
+          platforms: linux/amd64,linux/arm64,linux/arm/v7, linux/arm/v8
           file: MagicMirrorServer/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: francescozanti/magicmirror-docker:server-${{ env.version }}, francescozanti/magicmirror-docker:server-latest
