@@ -23,7 +23,9 @@ jobs:
 
     - name: MagicMirror-Docker Utils
       run: |
+        mkdir -p js
         cp ./MagicMirrorServer/config/config.js ./js/config.js 
+        mkdir -p modules/default
         cp ./MagicMirrorServer/modules/default/* ./modules/default 
         zip -r -X MagicMirror-Docker-utils.zip js/* modules/*
         ls -lah
