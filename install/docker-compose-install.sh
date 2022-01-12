@@ -37,5 +37,10 @@ docker-compose up -d
 curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v2022.01/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
 tar xf MagicMirror-Docker-utils.tar.gz
 
-cp config/config.js $MM_CONFIG/config.js
-cp -R modules/default $MM_MODULES/default
+cp js/config.js $MM_CONFIG/config.js
+cp -R modules/default $MM_MODULES
+
+
+rm -rf MagicMirror-Docker-utils.tar.gz js/ modules/
+
+echo "Magic Mirror installed: $PWD/MagicMirrorServer/"

@@ -101,7 +101,7 @@ xhost + local:docker
 
 <br>
 
-```
+
 
 Infine è il momento di avviare il client:
 
