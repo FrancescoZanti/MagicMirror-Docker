@@ -28,7 +28,9 @@ jobs:
         mkdir -p modules/default
         cp -r ./MagicMirrorServer/modules/default/ ./modules/default 
         zip -r -X MagicMirror-Docker-utils.zip js/* modules/*
+        tar -zcvf MagicMirror-Docker-utils.tar.gz js/* modules/*
         ls -lah
+
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -36,4 +38,5 @@ jobs:
         prerelease: false
         files: |
           MagicMirror-Docker-utils.zip
+          MagicMirror-Docker-utils.tar.gz
 
