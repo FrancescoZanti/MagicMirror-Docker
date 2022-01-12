@@ -91,6 +91,18 @@ cd ../magicMirrorClient && docker build -t mmclient:latest .
 ```
 <br>
 
+Aggiungere la seguente riga nel file **/etc/profile** (permanente) o eseguirla nel terminale (temporaneo, fino al primo riavvio):
+
+<br>
+
+```
+xhost + local:docker
+```
+
+<br>
+
+```
+
 Infine è il momento di avviare il client:
 
 <br>
@@ -103,18 +115,8 @@ chmod +x run.sh && ./run.sh
 
 ### Docker-compose 🚀   
 
-Aggiungere la seguente riga nel file **/etc/profile** (permanente) o eseguirla nel terminale (temporaneo, fino al primo riavvio):
 
-<br>
-
-```
-xhost + local:docker
-```
-
-<br>
-
-```
-curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/docker-compose.yml' -o docker-compose.yml | pv | docker-compose up -d
+curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/install/docker-compose-install.sh' -o docker-compose-install.sh | pv | bash docker-compose-install.sh
 ```
 
 ### ToDo
