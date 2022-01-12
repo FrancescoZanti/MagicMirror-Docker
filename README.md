@@ -115,7 +115,7 @@ chmod +x run.sh && ./run.sh
 
 ### Docker-compose 🚀   
 
-
+```
 curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/install/docker-compose-install.sh' -o docker-compose-install.sh | pv | bash docker-compose-install.sh
 ```
 
