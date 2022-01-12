@@ -5,3 +5,4 @@ MagicMirrorClient - electron
 MagicMirrorServer/build.sh
 MagicMirrorClient/build.sh
 test/GithubActions
+pre-commit.sh
