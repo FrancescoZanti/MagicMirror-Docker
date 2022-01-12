@@ -26,7 +26,7 @@ jobs:
         mkdir -p js
         cp ./MagicMirrorServer/config/config.js ./js/config.js 
         mkdir -p modules/default
-        cp ./MagicMirrorServer/modules/default/* ./modules/default 
+        cp -r ./MagicMirrorServer/modules/default/ ./modules/default 
         zip -r -X MagicMirror-Docker-utils.zip js/* modules/*
         ls -lah
     - uses: "marvinpinto/action-automatic-releases@latest"
