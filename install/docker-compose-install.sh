@@ -5,6 +5,10 @@
 ## Docker 
 ## Docker Compose
 
+## version
+
+version=$(date +%Y.%m) 
+
 echo: "xhost + local:docker"
 
 echo "Install in: $PWD"
@@ -34,7 +38,7 @@ docker-compose up -d
 
 # Copy Default Files
 
-curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v2022.01/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
+curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v$version/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
 tar xf MagicMirror-Docker-utils.tar.gz
 
 cp js/config.js $MM_CONFIG/config.js

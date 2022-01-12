@@ -1,0 +1,40 @@
+name: CT Default Files
+
+on:
+  schedule:
+  - cron: "* 0 * * 1"
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: "Version"
+
+      run: echo "version=$(date +%Y.%m)" >> $GITHUB_ENV
+
+    - uses: actions/checkout@v2
+
+
+    - name: MagicMirror-Docker Utils
+      run: |
+        mkdir -p js
+        cp ./MagicMirrorServer/config/config.js ./js/config.js 
+        mkdir -p modules/default
+        cp -r ./MagicMirrorServer/modules/default/ ./modules/default 
+        zip -r -X MagicMirror-Docker-utils.zip js/* modules/*
+        tar -zcvf MagicMirror-Docker-utils.tar.gz js/* modules/*
+        ls -lah
+
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: v${{ env.version }}
+        prerelease: false
+        files: |
+          MagicMirror-Docker-utils.zip
+          MagicMirror-Docker-utils.tar.gz
+
