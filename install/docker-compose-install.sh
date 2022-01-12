@@ -32,8 +32,10 @@ curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/mas
 
 docker-compose up -d
 
-
 # Copy Default Files
 
-curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/MagicMirrorServer/config/config.js' -o $MM_CONFIG/config.js
-curl -s '' 
+curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v2022.01/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
+tar xf MagicMirror-Docker-utils.tar.gz
+
+cp config/config.js $MM_CONFIG/config.js
+cp -R modules/default $MM_MODULES/default
