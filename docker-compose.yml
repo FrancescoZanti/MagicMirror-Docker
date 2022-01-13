@@ -4,9 +4,8 @@ services:
   mmserver:
     image: francescozanti/magicmirror-docker:server-latest
     volumes:
-    # TO DO Fix per volumi
-    #  - $PWD/MagicMirrorServer/config:/opt/magic_mirror/config
-    #  - $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules
+      - $PWD/MagicMirrorServer/config:/opt/magic_mirror/config
+      - $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules
       - $PWD/MagicMirrorServer/css/custom.css:/opt/magic_mirror/css/custom.css
     restart: always
 

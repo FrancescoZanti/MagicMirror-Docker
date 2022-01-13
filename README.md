@@ -28,9 +28,44 @@ Magic Mirror nasce come un'applicazione server-client (https://github.com/MichMi
 - Docker installato sul *device* server ("server")
 - Docker-compose installato (facoltativo, solo se si sceglie questa [opzione](#docker-compose))
 
+
 <br>
 
-### Pronti? Via! 🚀
+### Docker 🚀
+
+<br> Da lanciare su server:
+
+```
+docker run -d \
+-v $PWD/MagicMirrorServer/config:/opt/magic_mirror/config \
+-v $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules \
+-v $PWD/MagicMirrorServer/css/custom.css:/opt/magic_mirror/css/custom.css \
+-p 8080:8080 \
+--name magicmirror-server \
+francescozanti/magicmirror-docker:server-latest 
+```
+
+<br> Da lanciare su client:
+
+```
+docker run -d \
+-v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+--link magicmirror-server:magicmirror-server \
+-e URL=magicmirror-server:8080 \
+-e DISPLAY \
+--name magicmirror-client \
+francescozanti/magicmirror-docker:server-latest 
+```
+
+### Docker-compose 🚀   
+
+```
+curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/install/docker-compose-install.sh' -o docker-compose-install.sh && bash docker-compose-install.sh
+```
+
+<br>
+
+### Voglio Compilare tutto! 🚀
 
 Clonare questa repo su "server":
 
@@ -109,14 +144,6 @@ Infine è il momento di avviare il client:
 
 ```
 chmod +x run.sh && ./run.sh
-```
-
-<br>
-
-### Docker-compose 🚀   
-
-```
-curl -s 'https://raw.githubusercontent.com/FrancescoZanti/MagicMirror-Docker/master/install/docker-compose-install.sh' -o docker-compose-install.sh && bash docker-compose-install.sh
 ```
 
 ### ToDo

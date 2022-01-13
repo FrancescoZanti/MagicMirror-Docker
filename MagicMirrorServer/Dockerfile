@@ -25,8 +25,15 @@ COPY config/ /opt/magic_mirror/config/
 # Copy node_modules from node_modules folder
 RUN cp -R modules /opt/default_modules
 
+# Copy Entrypoint
+
+COPY docker-entrypoint.sh /opt
+RUN chmod +x /opt/docker-entrypoint.sh
+
 # Expose port 8080
 EXPOSE 8080 
 
 # Start MagicMirror
 CMD ["node", "serveronly"]
+ENTRYPOINT ["/opt/docker-entrypoint.sh"]
+
