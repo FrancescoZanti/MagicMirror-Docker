@@ -38,7 +38,9 @@ docker-compose up -d
 
 # Copy Default Files
 
-curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v$version/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
+#curl --location --remote-header-name --remote-name -s 'https://github.com/FrancescoZanti/MagicMirror-Docker/releases/download/v$version/MagicMirror-Docker-utils.tar.gz' -o MagicMirror-Docker-utils.tar.gz -o MagicMirror-Docker-utils.tar.gz 
+
+curl -s  https://api.github.com/repos/francescozanti/MagicMirror-Docker/releases/latest  | grep "MagicMirror-Docker-utils.tar.gz"  | cut -d '"' -f 4 | wget -qi -
 tar xf MagicMirror-Docker-utils.tar.gz
 
 cp js/config.js $MM_CONFIG/config.js

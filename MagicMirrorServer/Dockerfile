@@ -22,6 +22,8 @@ RUN npm install --silent
 # Copy config from config folder
 COPY config/ /opt/magic_mirror/config/
 
+COPY mm-docker-config.js /opt/magic_mirror/mm-docker-config.js
+
 # Copy node_modules from node_modules folder
 RUN cp -R modules /opt/default_modules
 

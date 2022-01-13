@@ -37,9 +37,9 @@ Magic Mirror nasce come un'applicazione server-client (https://github.com/MichMi
 
 ```
 docker run -d \
--v $PWD/MagicMirrorServer/config:/opt/magic_mirror/config \
--v $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules \
--v $PWD/MagicMirrorServer/css/custom.css:/opt/magic_mirror/css/custom.css \
+-v $PWD/MagicMirrorServer/config:/opt/magic_mirror/config:rw \
+-v $PWD/MagicMirrorServer/modules:/opt/magic_mirror/modules:rw \
+-v $PWD/MagicMirrorServer/css/custom.css:/opt/magic_mirror/css/custom.css:rw \
 -p 8080:8080 \
 --name magicmirror-server \
 francescozanti/magicmirror-docker:server-latest 
