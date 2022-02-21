@@ -1,4 +1,4 @@
-## 🇮🇹 Magic Mirror su Docker
+## 🇮🇹 Magic Mirror su Docker 🇮🇹
 <br>
 
 ### Cos'è Magic Mirror su Docker?
